@@ -20,7 +20,7 @@ SERVER_CONFIG="server {
 	}
 
 	if (\$request_filename ~ redirect_me) {
-		rewrite ^ https://wysedotng.tech/hbnb_static permanent;
+		rewrite ^ https://emmitech.tech/hbnb_static permanent;
 	}
 
 	location = /404.html {
