@@ -10,9 +10,9 @@ from fabric.api import env, local, put, run, runs_once
 
 
 """The list of host servers and credentials."""
-env.hosts = ["34.239.254.26", "54.89.26.117"]
+env.hosts = ["52.86.204.80", "34.202.158.153"]
 env.user = 'ubuntu'
-env.key_filename = '~/.ssh/id_rsa'
+env.key_filename = '~/.ssh/school'
 
 @runs_once
 def do_pack():
