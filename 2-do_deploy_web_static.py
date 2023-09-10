@@ -3,7 +3,6 @@ from fabric.api import put, run, local, env
 import os
 
 env.hosts = ["52.86.204.80", "34.202.158.153"]
-os.environ["runned_locally"] = "Yes"
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
 
@@ -11,6 +10,13 @@ env.key_filename = '~/.ssh/school'
 def do_deploy(archive_path):
     """Fabric script that distributes
     an archive to your web server"""
+    runned_locally = os.getenv("runned_locally", None) # None the first time
+    if runned_locally is None: # run the local commands
+        ...
+        os.environ["runned_locally"] = "True" # this must be a string
+    # run the remaining local codes
+    # use run outside the if statement
+    # to access the remote hosts
 
     if not os.path.exists(archive_path):
         return False
