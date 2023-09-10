@@ -4,7 +4,7 @@ from os import path
 
 
 env.hosts = ["52.86.204.80", "34.202.158.153"]
-env.user = 'ubuntu'
+env.local = 'localhost'
 env.key_filename = '~/.ssh/school'
 
 
