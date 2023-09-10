@@ -2,9 +2,9 @@
 from fabric.api import put, run, local, env
 from os import path
 
-
 env.hosts = ["52.86.204.80", "34.202.158.153"]
-env.local = 'localhost'
+env["runned_locally"] = "Yes"
+env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
 
 
