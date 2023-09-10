@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from fabric.api import put, run, local, env
 import os
+import fabric.api as api
+
 
 env.hosts = ["52.86.204.80", "34.202.158.153"]
 env.user = 'ubuntu'
@@ -8,6 +10,16 @@ env.key_filename = '~/.ssh/school'
 
 
 def do_deploy(archive_path):
+    """check and run locally"""
+    run('pwd')
+    '''run_locally = os.getenv("run_locally", None)
+    if run_locally is None:
+        api.local(f'mkdir -p {new_path}')
+        api.local(f'tar -zxf {archive_path} -C {new_path}')
+        api.local(f'rm -rfR {curr_path}')
+        api.local(f'In -s {new_path} {curr_path}')
+        os.environ['run_locally'] = "True"'''
+
     """Fabric script that distributes
     an archive to your web server"""
 
