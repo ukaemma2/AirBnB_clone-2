@@ -14,7 +14,6 @@ def do_pack():
     """ Create the versions folder if it doesn't exist """
     if not os.path.exists("versions"):
         os.mkdir("versions")
-    
     """ Create the archive name with the format web_static_
     <year><month><day><hour><minute><second>.tgz """
     cur_time = datetime.now().strftime("%Y%m%d%H%M%S")
@@ -25,7 +24,8 @@ def do_pack():
         print("Packing web_static to {}".format(archive_name))
         local("tar -cvzf {} web_static".format(archive_name))
         archive_size = os.stat(archive_name).st_size
-        print("web_static packed: {} -> {} Bytes".format(archive_name, archive_size))
+        print("web_static packed:
+              {} -> {} Bytes".format(archive_name, archive_size))
     except Exception:
         archive_name = None
     return archive_name
