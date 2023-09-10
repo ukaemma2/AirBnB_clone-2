@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 from fabric.api import put, run, local, env
-from os import path
+import os
 
 env.hosts = ["52.86.204.80", "34.202.158.153"]
-env["runned_locally"] = "Yes"
+os.environ["runned_locally"] = "Yes"
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/school'
 
@@ -12,7 +12,7 @@ def do_deploy(archive_path):
     """Fabric script that distributes
     an archive to your web server"""
 
-    if not path.exists(archive_path):
+    if not os.path.exists(archive_path):
         return False
     try:
         tgzfile = archive_path.split("/")[-1]
