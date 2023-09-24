@@ -24,11 +24,10 @@ def hello_HBNB():
 '''Define route for "/c/<text>"'''
 @app.route("/c/<text>", strict_slashes=False)
 def c_with_text(text):
-
     """Define "C" followed by by the value of <texyt>.
-        Replace underscores with spaces in the text variable
+    Replace underscores with spaces in the text variable
     """
-    formatted_text = text.replace('_', " ")
+    formatted_text = text.replace("_", " ")
     return "C {}".format(formatted_text)
 
 
