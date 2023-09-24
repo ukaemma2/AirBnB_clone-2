@@ -1,35 +1,34 @@
 #!/usr/bin/python3
-""" Starts  a Flask web application.
+"""Starts a Flask web application.
 The application listens on 0.0.0.0, port 5000.
 Routes:
-    /: Displays 'Hello HBNB!'
+    /: Displays 'Hello HBNB!'.
+    /hbnb: Displays 'HBNB'.
+    /c/<text>: Displays 'C' followed by the value of <text>.
 """
-from flask import Flask, request
+from flask import Flask
 
 app = Flask(__name__)
 
 
 @app.route("/", strict_slashes=False)
 def hello_hbnb():
-    """Displays 'Hello HBNB!'"""
+    """Displays 'Hello HBNB!'."""
     return "Hello HBNB!"
 
 
 @app.route("/hbnb", strict_slashes=False)
-def hello_HBNB():
-    """Display 'HBNB'"""
+def hbnb():
+    """Displays 'HBNB'."""
     return "HBNB"
 
 
-'''Define route for "/c/<text>"'''
 @app.route("/c/<text>", strict_slashes=False)
-def c_with_text(text):
-    """Define "C" followed by by the value of <texyt>.
-    Replace underscores with spaces in the text variable
-    """
-    formatted_text = text.replace("_", " ")
-    return "C {}".format(formatted_text)
+def c(text):
+    """Displays 'C' followed by the value of <text>."""
+    text = text.replace("_", " ")
+    return "C {}".format(text)
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0")
